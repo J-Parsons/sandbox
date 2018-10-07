@@ -45,18 +45,18 @@
 """
 
 combo_list = []
-log_types = ["legit", "copy", "fake", "modified", "deleted"]
+letters = ["a", "b", "c", "d", "e"]
 
 for current_index in range(len(log_types)):
-    copy_list = log_types[current_index + 1:]
-    combo = log_types[current_index]
+    copy_list = letters[current_index + 1:]
+    combo = letters[current_index]
     combo_list.append(combo)
     while len(copy_list) > 0:
         for elem in copy_list:
             combo = "-".join([combo, elem])
             combo_list.append(combo)
         del copy_list[0]
-        combo = log_types[current_index]
+        combo = letters[current_index]
 
 for combo in combo_list:
     print(combo)
