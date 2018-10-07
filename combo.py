@@ -2,7 +2,6 @@
     For an arbitrary list [a, b, c, d, e, ...], the pattern would progress as
     follows:
 
-    1, 2, 4, 7, 11
     a, a-b, a-b-c, a-b-c-d, a-b-c-d-e, ...
        a-c, a-c-d, a-c-d-e, ...
        a-d, a-d-e, ...
@@ -28,13 +27,11 @@
 
     I wrote the Python script below to generate this pattern for an arbitrary
     list. But when I went to test it for a 5-element list, I was surprised to
-    find that those five elements could compose 25 different combinations for
-    the aformentioned pattern. What is the relation between the number of
-    elements and the number of resulting combinations?
+    find that those five elements could generated 25 different combinations
+    along the pattern.
 
-    Cursory double-checking revealed that 5 elements led to 25 combinations,
-    composed of groups made up of 11, 7, 4, 2, and 1 combination(s). These
-    smaller groups would remain for lists of size 5 and greater.
+    Cursory double-checking revealed that the 25 combinations were composed of
+    smaller groups made up of 11, 7, 4, 2, and 1 combination(s).
 
     As it turns out, 1, 2, 4, 7, 11, ... is the beginning of the quadratic
     mathematic sequence n(n-1)/2 + 1. Put simply, this is a sequence starting
