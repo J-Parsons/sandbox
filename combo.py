@@ -47,7 +47,7 @@
 combo_list = []
 letters = ["a", "b", "c", "d", "e"]
 
-for current_index in range(len(log_types)):
+for current_index in range(len(letters)):
     copy_list = letters[current_index + 1:]
     combo = letters[current_index]
     combo_list.append(combo)
