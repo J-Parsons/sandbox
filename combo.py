@@ -31,32 +31,36 @@
     along the pattern.
 
     Cursory double-checking revealed that the 25 combinations were composed of
-    smaller groups made up of 11, 7, 4, 2, and 1 combination(s).
+    smaller groups made up of 11, 7, 4, 2, and 1 combination(s), which can be
+    represented by the quadratic sequence n(n-1)/2 + 1, where n (the number of
+    elements) is a positive integer.
 
-    As it turns out, 1, 2, 4, 7, 11, ... is the beginning of the quadratic
-    mathematic sequence n(n-1)/2 + 1. Put simply, this is a sequence starting
-    at 1 with a step size of n. Each round (starting at round 1), the step size
-    is added to the starting element to calculate the starting element for the
-    next round. In this case, the step size is simply the round number, meaning
-    that 1+1 = 2, 2+2 = 4, 4+3 = 7, 7+4 = 11, and so on.
+    n   f(n)
+    1   1       1 + 1 = 2
+    2   2       2 + 2 = 4
+    3   4       3 + 4 = 7
+    4   7       4 + 7 = 11
+    5   11      5 + 11 = 16
+    ...
 
-    Or, more generally: elem = round_num + elem where elem is initialized to 1
-    and round_num is one-indexed rather than zero-indexed.
+    This sequence can be generated with the following pseudo code:
+
+    n = 1
+    fn = 1
+    while 1:
+        fn = fn + n
+        n += 1
 """
 
 combo_list = []
 letters = ["a", "b", "c", "d", "e"]
 
-for current_index in range(len(letters)):
-    copy_list = letters[current_index + 1:]
-    combo = letters[current_index]
+for i, letter in enumerate(letters):
+    remaining = letters[i+1:]
+    combo = letter
     combo_list.append(combo)
-    while len(copy_list) > 0:
-        for elem in copy_list:
-            combo = "-".join([combo, elem])
+    while remaining:
+        for sub_letter in remaining:
+            combo = combo + sub_letter
             combo_list.append(combo)
-        del copy_list[0]
-        combo = letters[current_index]
-
-for combo in combo_list:
-    print(combo)
+        del remaining[0]
