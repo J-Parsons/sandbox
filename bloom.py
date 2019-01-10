@@ -3,7 +3,7 @@ Filters. A Bloom Filter is a high-speed, space-efficient data structure that
 supports probabilistic set-membership tests for a set of items. False positive
 matches are possible, but false negatives are not, so a membership query will
 return "possibly in the set" or "definitely not in the set". Elements can be
-to a Bloom Filter but not removed, similar to a blockchain.
+added to a Bloom Filter but not removed, similar to a blockchain.
 
 A basic Bloom Filter uses k hash functions and an m-bit array to represent n
 items. Each of the n items is hashed into k different numbers by each hash

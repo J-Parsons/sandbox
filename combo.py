@@ -1,6 +1,5 @@
-""" I was interested in modeling a particular pattern of combinations for work.
-    For an arbitrary list [a, b, c, d, e, ...], the pattern would progress as
-    follows:
+""" I was interested in modeling a particular pattern of combinations for an
+    an arbitrary list [a, b, c, d, e, ...]. The pattern would progress like so:
 
     a, a-b, a-b-c, a-b-c-d, a-b-c-d-e, ...
        a-c, a-c-d, a-c-d-e, ...
@@ -64,3 +63,6 @@ for i, letter in enumerate(letters):
             combo = combo + sub_letter
             combo_list.append(combo)
         del remaining[0]
+
+for combo in combo_list:
+    print(combo)
